@@ -1,14 +1,14 @@
 import './App.css';
-import Weather from './weather/weather';
+// import Weather from './weather/weather';
 import Nasa from './nasa/Nasa';
-import Tickets from './tickets/Tickets';
+// import Tickets from './tickets/Tickets';
 
 function App() {
   return (
     <div>
       <Nasa />
-      <Tickets />
-      <Weather />
+      {/* <Tickets />
+      <Weather /> */}
     </div>
   );
 }
