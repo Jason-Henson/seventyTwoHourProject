@@ -3,6 +3,7 @@ import './App.css';
 // import Nasa from './nasa/Nasa';
 import Tickets from './tickets/Tickets';
 import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.css' 
 
 function App() {
   const [lon, setLon] = useState(0)
