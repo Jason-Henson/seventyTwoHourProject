@@ -26,8 +26,7 @@ const Tickets = (props) => {
   return (
     <div>
       <h1>Here are some events in your area!</h1>
-
-      <TicketChild results={eventResults} />
+        <TicketChild results={eventResults} />
     </div>
   );
 };
