@@ -1,17 +1,20 @@
-import { Button } from 'bootstrap';
+import './weather.css'
 import React, { useState, useEffect } from 'react';
-import { Container, Col, Row } from 'reactstrap'
+import { Container, Col, Row, Button } from 'reactstrap'
 
 const Weather = (props) => { 
+
+    const [toggleHawk, settoggleHawk] = useState(true);
+    const [tempSymbol, settempSymbol] = useState('F');
+
     
     let lat = props.lat === 0 ? localStorage.getItem("setLat") : props.lat
     let lon = props.lat === 0 ? localStorage.getItem("setLon") : props.lon
 
     // *** Fetch ***   
-
+    const [units, setUnits] = useState('&units=imperial');
     const apiKey = `03c1666c3ae04bf692763ac28385b961`;
-    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`;
-
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}${units}`;
 
     // state variables to contain fetched data
     const [temp, setTemp] = useState([]);
@@ -36,18 +39,44 @@ const Weather = (props) => {
     }  
 
     useEffect(() => {
-        fetchWeather()
+         fetchWeather()
     }, [])
+
+        // API endpoiont and key appended with imerial units of measurement
+    
+
+    let toggle = () => {
+        if (toggleHawk !== true){
+            setUnits('&units=metric');
+            fetchWeather();
+            settoggleHawk(true);            
+        } else {
+            setUnits('&units=imperial');
+            fetchWeather();
+            settoggleHawk(false);
+            settempSymbol('F');
+        }
+
+        if(units === '&units=metric') {
+            settempSymbol('C');
+        } 
+
+        if(units === '&units=imperial'){
+            settempSymbol('F');
+        }
+        
+    }
 
     // Return
     return (        
-        <Container>       
+        <Container>                
             Your Locaiton: {userLoc} <br />
-            Current Temp: {temp}&#8457; <br />
-            Heat Index: {feelsLike}&#8457; <br />
-            High Temp: {highTemp}&#8457; <br />
-            Low Temp: {lowTemp}&#8457; <br />
-            Humidity: {humidity}&#37; <br />
+            Current Temp: {temp} {tempSymbol} <br />
+            Heat Index: {feelsLike} {tempSymbol} <br />
+            High Temp: {highTemp} {tempSymbol} <br />
+            Low Temp: {lowTemp} {tempSymbol} <br />
+            Humidity: {humidity} {tempSymbol} <br />
+            <Button onClick={toggle}>Toggle C/F</Button>
         </Container>      
     );
 }
