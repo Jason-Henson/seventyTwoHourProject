@@ -1,31 +1,14 @@
 import React, { useState, useEffect } from "react";
-import NasaChild from './NasaChild';
-import {
-    Card,
-    CardImg,
-    CardBody,
-    CardText
-  } from "reactstrap";
+import NasaChild from "./NasaChild";
 
 const Nasa = (props) => {
-
-  let lat = props.lat === 0 ? localStorage.getItem("setLat") : props.lat
-  let lon = props.lat === 0 ? localStorage.getItem("setLon") : props.lon
-  // const [lon, setLon] = useState('')
-  // const [lat, setLat] = useState('')
+  let lat = props.lat === 0 ? localStorage.getItem("setLat") : props.lat;
+  let lon = props.lat === 0 ? localStorage.getItem("setLon") : props.lon;
   const d = new Date();
-  // const getLoc = () => {
-  //   navigator.geolocation.getCurrentPosition((position) => {
-  //     setLat(position.coords.latitude)
-  //     setLon(position.coords.longitude)
-  //   })
-  // }
 
-  // useEffect(() => {
-  //   getLoc()
-  // }, [])
-
-  const url = `https://api.nasa.gov/planetary/earth/assets?lon=${lon}&lat=${lat}&date=${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}&&dim=0.10&api_key=fvIB5bqFzbPbnDzPGe9Epac1bd6vsQ0Fq1rYbeE1`;
+  const url = `https://api.nasa.gov/planetary/earth/assets?lon=${lon}&lat=${lat}&date=${d.getFullYear()}-${
+    d.getMonth() + 1
+  }-${d.getDate()}&&dim=0.10&api_key=fvIB5bqFzbPbnDzPGe9Epac1bd6vsQ0Fq1rYbeE1`;
 
   const [results, setResults] = useState([]);
 
@@ -43,8 +26,7 @@ const Nasa = (props) => {
 
   return (
     <div>
-      <h1>Nasa API</h1>
-      <NasaChild data={results}/>
+      <NasaChild data={results} />
     </div>
   );
 };
