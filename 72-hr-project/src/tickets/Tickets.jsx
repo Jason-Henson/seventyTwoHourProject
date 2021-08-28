@@ -31,7 +31,7 @@ const Tickets = (props) => {
     <Container className="ticket-container">
       <Row>
         <div>
-          <h1>Here are some events in your area!</h1>
+          <h1>Checkout some events near you!</h1>
 
           <TicketChild results={eventResults} />
         </div>
