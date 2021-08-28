@@ -1,18 +1,15 @@
 import './App.css';
-// import Weather from './weather/weather';
+import Tickets from './tickets/Tickets'; 
 import Nasa from './nasa/Nasa';
-// import Tickets from './tickets/Tickets';
+import Weather from './weather/weather';
+
 import React, { useState, useEffect } from 'react';
 
-function App() {
-import Weather from './weather/weather';
-import React, { useState, useEffect } from 'react';
-// import Nasa from './nasa/Nasa';
-// import Tickets from './tickets/Tickets';
 
 function App() {
   const [lon, setLon] = useState(0)
   const [lat, setLat] = useState(0)
+
   const getLoc = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude)
@@ -23,20 +20,16 @@ function App() {
       console.log(lon)
     })
   }
+
   useEffect(() => {
     getLoc()
   }, [])
-  return (
-    <div>
-      <Nasa lon={lon} lat={lat}/>
-      {/* <Tickets />
-      <Weather /> */}
 
   return (
     <div>
-      {/* <Nasa />
-      <Tickets /> */}
+      <Tickets lon={lon} lat={lat} />
       <Weather lat={lat} lon={lon} />
+      <Nasa lon={lon} lat={lat}/>
     </div>
   );
 }
