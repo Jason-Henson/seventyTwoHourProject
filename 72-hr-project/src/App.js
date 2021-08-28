@@ -1,9 +1,10 @@
 import './App.css';
-import Tickets from './tickets/Tickets'; 
+import Tickets from './tickets/Tickets';
 import Nasa from './nasa/Nasa';
 import Weather from './weather/weather';
 
 import React, { useState, useEffect } from 'react';
+import { Container, Row, Col } from "reactstrap";
 
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
     navigator.geolocation.getCurrentPosition((position) => {
       setLat(position.coords.latitude)
       setLon(position.coords.longitude)
-      localStorage.setItem("setLat",position.coords.latitude)
-      localStorage.setItem("setLon",position.coords.longitude)
+      localStorage.setItem("setLat", position.coords.latitude)
+      localStorage.setItem("setLon", position.coords.longitude)
       console.log(lat);
       console.log(lon)
     })
@@ -26,11 +27,21 @@ function App() {
   }, [])
 
   return (
-    <div>
-      <Tickets lon={lon} lat={lat} />
-      <Weather lat={lat} lon={lon} />
-      <Nasa lon={lon} lat={lat}/>
-    </div>
+    <Container>
+      <Row>
+        <Col className="weather-col">
+          <Weather lat={lat} lon={lon} />
+        </Col>
+      </Row>
+      <Row>
+        <Col className="nasa-col">
+          <Nasa lon={lon} lat={lat} />
+        </Col>
+        <Col className="ticket-col">
+          <Tickets lon={lon} lat={lat} />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

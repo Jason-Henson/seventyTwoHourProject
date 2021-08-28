@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TicketChild from "./TicketChild";
-import {ListGroup, ListGroupItem, Container, Row, Col } from "reactstrap";
+import { ListGroup, ListGroupItem, Container, Row, Col } from "reactstrap";
 
 const Tickets = (props) => {
   let lat = props.lat === 0 ? localStorage.getItem("setLat") : props.lat;
@@ -24,19 +24,10 @@ const Tickets = (props) => {
   }, []);
 
   return (
-
-
-
-
-    <Container className="ticket-container">
-      <Row>
-        <div>
-          <h1>Checkout some events near you!</h1>
-
-          <TicketChild results={eventResults} />
-        </div>
-      </Row>
-    </Container>
+    <div>
+      <h1>Here are some events in your area!</h1>
+        <TicketChild results={eventResults} />
+    </div>
   );
 };
 

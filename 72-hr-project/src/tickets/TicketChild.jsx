@@ -6,7 +6,7 @@ const TicketChild = (props) => {
     const mapperEvent = () => {
         return props.results.map((eventData)=> {
             return(
-                <ListGroup>
+                <ListGroup className="ticket-list">
                     <ListGroupItem> 
                     <a href={eventData.url} target="_blank" >{eventData.name}</a>
                     </ListGroupItem>
