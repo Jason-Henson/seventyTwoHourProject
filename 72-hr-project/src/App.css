@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.weather-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nasa-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.nasa-image {
+  height: 100%;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.ticket-col {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.button {
+  margin-top: 5px;
+}
