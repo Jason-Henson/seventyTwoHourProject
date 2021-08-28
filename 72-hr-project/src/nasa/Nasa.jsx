@@ -8,7 +8,10 @@ const Nasa = (props) => {
 
   const url = `https://api.nasa.gov/planetary/earth/assets?lon=${lon}&lat=${lat}&date=${d.getFullYear()}-${
     d.getMonth() + 1
-  }-${d.getDate()}&&dim=0.10&api_key=fvIB5bqFzbPbnDzPGe9Epac1bd6vsQ0Fq1rYbeE1`;
+  }-${
+    d.getDate() - 1
+  }&&dim=0.10&api_key=fvIB5bqFzbPbnDzPGe9Epac1bd6vsQ0Fq1rYbeE1`;
+  console.log(url);
 
   const [results, setResults] = useState([]);
 

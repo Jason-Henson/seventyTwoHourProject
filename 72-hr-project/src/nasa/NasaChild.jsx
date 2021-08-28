@@ -4,8 +4,8 @@ import { Card, CardBody, CardTitle, CardText, CardImg } from "reactstrap";
 const NasaChild = (props) => {
   const image = props.data;
   return (
-    <div>
-      <Card>
+    <div className="nasa-div">
+      <Card className="nasa-image">
         <CardImg
           top
           width="50%"
@@ -14,12 +14,9 @@ const NasaChild = (props) => {
           alt="Card image cap"
         />
         <CardBody>
-          <CardTitle tag="h5">Nasa API</CardTitle>
+          <CardTitle tag="h5">Satellite Image</CardTitle>
           <CardText>
             This is an image of your exact coordinates.
-          </CardText>
-          <CardText>
-            <small className="text-muted">Last updated 3 mins ago</small>
           </CardText>
         </CardBody>
       </Card>
